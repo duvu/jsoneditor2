@@ -2,6 +2,8 @@ package me.duvu.jsoneditor2;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +15,7 @@ import me.duvu.jsoneditor2.services.JsonSchemaService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
@@ -31,9 +34,14 @@ public class JsonSchemaController {
         return jsonSchemaService.createJsonSchema(jsonSchema);
     }
 
-    @GetMapping(value="all")
+    @GetMapping(value="/all")
     public List<JsonSchema> getAllJsonSchemas() {
         return jsonSchemaService.getAllJsonSchemas();
+    }
+
+    @GetMapping(value="/{id}")
+    public JsonSchema getJsonSchema(@PathVariable String id) {
+        return jsonSchemaService.getJsonSchema(id);
     }
     
 }

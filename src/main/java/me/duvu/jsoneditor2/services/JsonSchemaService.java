@@ -33,6 +33,10 @@ public class JsonSchemaService {
         return jsonSchemaRepository.findAll();
     }
 
+    public JsonSchema getJsonSchema(String id) {
+        return jsonSchemaRepository.findById(id).get();
+    }
+
     public void deleteJsonSchema(String id) {
         jsonSchemaRepository.deleteById(id);
     }
