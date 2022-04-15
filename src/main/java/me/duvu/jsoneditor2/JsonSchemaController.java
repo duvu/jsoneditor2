@@ -11,13 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import me.duvu.jsoneditor2.models.JsonSchema;
 import me.duvu.jsoneditor2.services.JsonSchemaService;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/json-schemas")
 public class JsonSchemaController {
     private final JsonSchemaService jsonSchemaService;
