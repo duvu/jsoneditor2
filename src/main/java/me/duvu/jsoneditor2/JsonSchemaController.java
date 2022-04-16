@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import me.duvu.jsoneditor2.models.JsonSchema;
 import me.duvu.jsoneditor2.services.JsonSchemaService;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -40,4 +41,8 @@ public class JsonSchemaController {
         return jsonSchemaService.getJsonSchema(id);
     }
     
+    @DeleteMapping(value="/{id}")
+    public void deleteJsonSchema(@PathVariable String id) {
+        jsonSchemaService.deleteJsonSchema(id);
+    }
 }
